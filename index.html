@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kiraku Travel — Le site se prépare</title>
+<meta name="description" content="Kiraku Travel — voyages au Japon hors des sentiers battus. Le site se prépare, nos premiers itinéraires arrivent bientôt." />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kiraku Travel — Le site se prépare" />
+<meta property="og:description" content="Voyages au Japon hors des sentiers battus. Lents, précis, chez l'habitant. On ouvre bientôt." />
+<meta property="og:image" content="assets/seal-red.png" />
+<meta property="og:locale" content="fr_FR" />
+<meta name="theme-color" content="#F6F1E8" />
+<link rel="icon" href="assets/seal-red.png" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    padding: var(--sp-6) var(--sp-5);
+    position: relative;
+    overflow: auto;
+  }
+
+  /* Giant journey-glyph watermark — single ornament, very faint */
+  .glyph {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glyph span {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: min(86vh, 64vw);
+    line-height: 1;
+    color: var(--fg);
+    opacity: 0.05;
+    transform: translateY(-2%);
+    user-select: none;
+  }
+
+  /* Hairline frame — a faint editorial margin */
+  .frame {
+    position: fixed;
+    inset: var(--sp-5);
+    border: 1px solid var(--hairline);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .stage {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seal {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+  }
+
+  /* PNG is square with large vertical whitespace — cap the box so it
+     doesn't inflate the column height. */
+  .wordmark {
+    width: clamp(180px, 30vw, 232px);
+    height: auto;
+    margin-top: var(--sp-2);
+  }
+
+  .eyebrow {
+    margin-top: var(--sp-3);
+    color: var(--fg-subtle);
+    font-size: var(--fs-2xs);
+    letter-spacing: var(--tracking-widest);
+  }
+
+  h1 {
+    margin-top: var(--sp-4);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.08;
+    letter-spacing: var(--tracking-tight);
+    color: var(--fg);
+  }
+  h1 .soft { color: var(--fg-muted); }
+
+  .lead {
+    margin-top: var(--sp-4);
+    font-family: var(--font-serif);
+    font-size: clamp(17px, 2.2vw, 20px);
+    line-height: var(--lh-relaxed);
+    color: var(--fg-2);
+    max-width: 30em;
+  }
+
+  .rule {
+    width: 56px;
+    height: 1px;
+    background: var(--border-strong);
+    margin: var(--sp-6) 0 var(--sp-5);
+  }
+
+  .contact-label {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--fg-subtle);
+  }
+
+  .contact {
+    margin-top: var(--sp-3);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(20px, 3vw, 28px);
+    color: var(--fg);
+    text-decoration: none;
+    letter-spacing: var(--tracking-tight);
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 3px;
+    transition: color 180ms cubic-bezier(.22,1,.36,1),
+                border-color 180ms cubic-bezier(.22,1,.36,1);
+  }
+  .contact:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .foot {
+    margin-top: var(--sp-6);
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--fg-subtle);
+  }
+
+  /* Entrance — fade + 8px rise, calm out-expo, lightly staggered */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .stage > * {
+    opacity: 0;
+    animation: rise 620ms cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .stage > *:nth-child(1) { animation-delay: 80ms; }
+  .stage > *:nth-child(2) { animation-delay: 160ms; }
+  .stage > *:nth-child(3) { animation-delay: 260ms; }
+  .stage > *:nth-child(4) { animation-delay: 340ms; }
+  .stage > *:nth-child(5) { animation-delay: 420ms; }
+  .stage > *:nth-child(6) { animation-delay: 540ms; }
+  .stage > *:nth-child(7) { animation-delay: 600ms; }
+  .stage > *:nth-child(8) { animation-delay: 680ms; }
+  .stage > *:nth-child(9) { animation-delay: 760ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage > * { animation: none; opacity: 1; }
+  }
+
+  @media (max-width: 520px) {
+    .frame { inset: var(--sp-3); }
+  }
+</style>
+</head>
+<body>
+  <div class="glyph" aria-hidden="true"><span>旅</span></div>
+  <div class="frame" aria-hidden="true"></div>
+
+  <main class="stage">
+    <img class="seal" src="assets/seal-red.png" alt="Sceau Kiraku" />
+    <img class="wordmark" src="assets/wordmark-noir.png" alt="Kiraku" />
+
+    <p class="eyebrow">VOYAGES AU JAPON · HORS DES SENTIERS BATTUS</p>
+    <h1>Le site se prépare.<br /><span class="soft">On ouvre bientôt.</span></h1>
+    <p class="lead">Nos premiers itinéraires arrivent. Lents, précis, chez l'habitant.</p>
+
+    <hr class="rule" />
+
+    <p class="contact-label">Une question, écris-nous</p>
+    <a class="contact" href="mailto:voyage@japonautrement.fr">voyage@japonautrement.fr</a>
+
+    <p class="foot">喜 楽 · KIRAKU TRAVEL · JAPON AUTREMENT</p>
+  </main>
+</body>
+</html>
