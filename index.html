@@ -155,6 +155,26 @@
     color: var(--fg-subtle);
   }
 
+  .credit {
+    margin-top: var(--sp-3);
+    font-family: var(--font-sans);
+    font-size: var(--fs-2xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--fg-subtle);
+  }
+  .credit a {
+    color: var(--fg-subtle);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 1px;
+    transition: color 180ms cubic-bezier(.22,1,.36,1),
+                border-color 180ms cubic-bezier(.22,1,.36,1);
+  }
+  .credit a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
   /* Entrance — fade + 8px rise, calm out-expo, lightly staggered */
   @keyframes rise {
     from { opacity: 0; transform: translateY(8px); }
@@ -201,6 +221,8 @@
     <a class="contact" href="mailto:voyage@japonautrement.fr">voyage@japonautrement.fr</a>
 
     <p class="foot">喜 楽 · KIRAKU TRAVEL · JAPON AUTREMENT</p>
+
+    <p class="credit">Site conçu par <a href="https://www.shorai-group.com" target="_blank" rel="noopener">ShorAI Consulting</a></p>
   </main>
 </body>
 </html>
